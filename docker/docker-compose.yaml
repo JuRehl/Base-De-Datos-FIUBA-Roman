@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:17.4 # Ojo usuarios ARM!
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: bdd_db    
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+
+volumes:
+  db_data:
+
+# docker exec -it playground-bdd-db-1 psql -U usuario bdd_db
+
+# docker exec -it <container name> psql -U usuario bdd_db
